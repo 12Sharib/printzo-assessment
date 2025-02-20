@@ -38,14 +38,14 @@ Ensure you have the following installed:
 ## Using Docker
 ```bash
 mvn clean package
-docker build -t productDto-management .
+docker build -t product-management .
 ```
 
 ### **Run the Docker Container**
 Start the container with the required environment variables and port mappings:
 
 ```bash
-docker run -p 8080:8080 -e PROFILE=dev,qa,stage or prod productDto-management
+docker run -p 8080:8080 -e PROFILE=dev,qa,stage or prod product-management
 ```
 ---
 
@@ -56,12 +56,12 @@ docker run -p 8080:8080 -e PROFILE=dev,qa,stage or prod productDto-management
 ### **Swagger UI (API Documentation & Testing)**
 After running the container, access Swagger UI:
 
-**URL:** [http://localhost:8080/productDto-management/swagger-ui.html](http://localhost:8080/productDto-management/swagger-ui.html)
+**URL:** [http://localhost:8080/product-management/swagger-ui.html](http://localhost:8080/productDto-management/swagger-ui.html)
 
 ### **H2 Database Console**
 To access the H2 Console inside the container:
 
-**URL:** [http://localhost:8080/productDto-management/h2-console](http://localhost:8080/productDto-management/h2-console)
+**URL:** [http://localhost:8080/product-management/h2-console](http://localhost:8080/productDto-management/h2-console)
 
 Use the following credentials:
 - **JDBC URL:** `jdbc:h2:mem:product_management`
@@ -194,7 +194,7 @@ docker exec -it <container_id> sh
 To test if the application is responding:
 
 ```bash
-curl http://localhost:8080/productDto-management/actuator/health
+curl http://localhost:8080/product-management/actuator/health
 ```
 
 ---
