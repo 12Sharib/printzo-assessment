@@ -39,13 +39,13 @@ public class SecurityConfig {
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     http.csrf(AbstractHttpConfigurer::disable)
         .headers(headers -> headers.frameOptions().disable())
-        .authorizeHttpRequests(auth -> auth
-            .requestMatchers(AUTH_WHITELIST).permitAll()
-            .requestMatchers( "/product/**").hasAuthority(USER)
-            .requestMatchers( "/admin/**").hasAuthority(ADMIN)
-            .requestMatchers( "/type/**").hasAuthority(ADMIN)
-           .anyRequest().authenticated()
-        )
+        .authorizeHttpRequests(auth -> auth.anyRequest().permitAll())
+//            .requestMatchers(AUTH_WHITELIST).permitAll()
+//            .requestMatchers( "/product/**").hasAuthority(USER)
+//            .requestMatchers( "/admin/**").hasAuthority(ADMIN)
+//            .requestMatchers( "/type/**").hasAuthority(ADMIN)
+//           .anyRequest().authenticated()
+
         .sessionManagement(
             session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

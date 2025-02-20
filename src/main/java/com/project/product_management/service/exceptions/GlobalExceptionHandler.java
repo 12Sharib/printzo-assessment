@@ -28,6 +28,7 @@ public class GlobalExceptionHandler {
   @ExceptionHandler(RuntimeException.class)
   public ResponseEntity<ErrorResponse> handleRuntimeException(
       final Exception exception) {
+    log.error("Exception {0}", exception);
     return ResponseEntity.internalServerError().body(
         new ErrorResponse(exception.getMessage(), false));
   }
